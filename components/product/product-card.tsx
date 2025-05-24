@@ -20,7 +20,7 @@ export function ProductCard({
 }: ProductCardProps) {
   const mockProduct: Product = {
     id: 1,
-    name: "Lọc gió động cơ Air Filter Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,
@@ -36,7 +36,7 @@ export function ProductCard({
     return (
       <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative transition-all duration-300 hover:shadow-md hover:shadow-blue-shadow cursor-pointer">
         <div className="relative">
-          <Link href={`/product/${productData.id}`}>
+          <Link href={`#`}>
             <Image
               src={productData.image || defaultImage}
               alt={productData.name}
@@ -55,9 +55,9 @@ export function ProductCard({
               height={12}
               className="hidden sm:block"
             />
-            Giá sốc
+            Giá cực sốc
           </p>
-          <Link href={`/product/${productData.id}`}>
+          <Link href={`#`}>
             <h3 className="text-xs font-medium line-clamp-2 text-textPrimary min-h-[2.5rem]">
               {productData.name}
             </h3>
@@ -92,7 +92,7 @@ export function ProductCard({
   return (
     <div className="bg-white rounded-lg shadow-sm overflow-hidden group relative transition-all duration-300 hover:shadow-md hover:shadow-blue-shadow cursor-pointer">
       <div className="relative">
-        <Link href={`/product/${productData.id}`}>
+        <Link href={`#`}>
           <Image
             src={productData.image || defaultImage}
             alt={productData.name}
@@ -112,9 +112,9 @@ export function ProductCard({
             height={16}
             className="hidden sm:block"
           />
-          Giá sốc
+          Giá cực sốc
         </p>
-        <Link href={`/product/${productData.id}`}>
+        <Link href={`#`}>
           <h3 className="text-xs sm:text-sm font-medium line-clamp-2 text-textPrimary min-h-[2.5rem]">
             {productData.name}
           </h3>

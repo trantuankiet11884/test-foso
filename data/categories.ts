@@ -46,7 +46,7 @@ export const categoryItems = [
 export const bestSellingProducts = [
   {
     id: 1,
-    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,
@@ -56,7 +56,7 @@ export const bestSellingProducts = [
   },
   {
     id: 2,
-    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,
@@ -66,7 +66,7 @@ export const bestSellingProducts = [
   },
   {
     id: 3,
-    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,
@@ -76,7 +76,7 @@ export const bestSellingProducts = [
   },
   {
     id: 4,
-    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,
@@ -86,7 +86,7 @@ export const bestSellingProducts = [
   },
   {
     id: 5,
-    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado, Trailblazer",
+    name: "Lọc gió động cơ Air Filter - Chevrolet Colorado",
     price: 299000,
     originalPrice: 329000,
     discount: 10,

@@ -99,15 +99,15 @@ export function Navigation() {
             )}
           </Button>
 
-          {showCategoryMenu && (
+          {/* {showCategoryMenu && (
             <div
               onMouseEnter={handleMouseEnter}
               onMouseLeave={handleMouseLeave}
-              className="absolute left-0 right-0 z-50"
-            >
-              <CategoryDropdown />
-            </div>
-          )}
+              className="absolute left-0 right-0 z-50" */}
+          {/* // > */}
+          <CategoryDropdown />
+          {/* </div> */}
+          {/* // )} */}
         </div>
 
         <div className="flex items-center space-x-4">
