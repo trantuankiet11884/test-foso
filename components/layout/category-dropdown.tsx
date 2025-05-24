@@ -123,7 +123,7 @@ export function CategoryDropdown() {
               className="p-4 border border-gray-200 rounded-lg flex items-center hover:border-blue-300 hover:bg-blue-50 transition-colors group"
             >
               <Image
-                src="/placeholder.svg?height=50&width=50"
+                src={defaultImage}
                 alt="Bộ lọc gió"
                 width={50}
                 height={50}
