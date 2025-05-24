@@ -42,7 +42,7 @@ export function ProductCard({
               alt={productData.name}
               width={150}
               height={150}
-              className="w-full h-32 object-contain p-2 transition-transform duration-300"
+              className="w-full h-24 sm:h-32 object-contain p-2 transition-transform duration-300"
             />
           </Link>
         </div>
@@ -53,11 +53,12 @@ export function ProductCard({
               alt="warning"
               width={12}
               height={12}
+              className="hidden sm:block"
             />
-            Giá cực sốc
+            Giá sốc
           </p>
           <Link href={`/product/${productData.id}`}>
-            <h3 className="text-xs font-medium line-clamp-2 text-textPrimary">
+            <h3 className="text-xs font-medium line-clamp-2 text-textPrimary min-h-[2.5rem]">
               {productData.name}
             </h3>
           </Link>
@@ -78,7 +79,7 @@ export function ProductCard({
           </div>
           <Button
             variant="outline"
-            className="w-full mt-1 text-blue-main bg-brand-50 border-none hover:bg-brand-50 hover:text-blue-main transition-colors text-xs h-8"
+            className="w-full mt-1 text-blue-main bg-brand-50 border-none hover:bg-brand-50 hover:text-blue-main transition-colors text-xs h-7 sm:h-8"
             onClick={() => onAddToCart?.(productData.id)}
           >
             Mua ngay
@@ -97,36 +98,37 @@ export function ProductCard({
             alt={productData.name}
             width={200}
             height={200}
-            className="w-full h-48 object-contain p-4 transition-transform duration-300"
+            className="w-full h-32 sm:h-40 md:h-48 object-contain p-3 md:p-4 transition-transform duration-300"
           />
         </Link>
       </div>
 
-      <div className="p-4 flex flex-col gap-2">
+      <div className="p-3 md:p-4 flex flex-col gap-1 md:gap-2">
         <p className="bg-gradient-warning text-error px-2 py-1 rounded-full text-xs w-fit flex items-center gap-1">
           <Image
             src="/images/products/Left.png"
             alt="warning"
             width={16}
             height={16}
+            className="hidden sm:block"
           />
-          Giá cực sốc
+          Giá sốc
         </p>
         <Link href={`/product/${productData.id}`}>
-          <h3 className="text-sm font-medium line-clamp-2 text-textPrimary">
+          <h3 className="text-xs sm:text-sm font-medium line-clamp-2 text-textPrimary min-h-[2.5rem]">
             {productData.name}
           </h3>
         </Link>
         <div className="flex items-center justify-between">
           <div>
-            <p className="font-bold text-errorDark">
+            <p className="font-bold text-errorDark text-sm sm:text-base">
               {formatCurrency(productData.price)}
             </p>
             <div className="flex items-center gap-1">
-              <p className="text-xs text-disabled line-through">
+              <p className="text-xs text-disabled line-through text-[10px] sm:text-xs">
                 {formatCurrency(productData.originalPrice)}
               </p>
-              <span className="text-errorDark text-xs">
+              <span className="text-errorDark text-[10px] sm:text-xs">
                 -{productData.discount}%
               </span>
             </div>
@@ -135,7 +137,7 @@ export function ProductCard({
 
         <Button
           variant="outline"
-          className="w-full mt-3 text-blue-main bg-brand-50 border-none hover:bg-brand-50 hover:text-blue-main transition-colors"
+          className="w-full mt-2 text-blue-main bg-brand-50 border-none hover:bg-brand-50 hover:text-blue-main transition-colors text-xs sm:text-sm h-8 sm:h-10"
           onClick={() => onAddToCart?.(productData.id)}
         >
           Mua ngay

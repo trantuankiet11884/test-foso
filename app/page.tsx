@@ -18,19 +18,24 @@ import {
 } from "lucide-react";
 import Link from "next/link";
 import { FaChevronRight } from "react-icons/fa";
+import { useState } from "react";
 
 export default function Home() {
   const { products, loading, hasMore, loadMoreProducts, applyFilters } =
     useProducts();
+  const [filtersVisible, setFiltersVisible] = useState(false);
 
   const handleAddToCart = (productId: number) => {
     console.log("Add to cart:", productId);
-    // Implement cart logic here
   };
 
   const handleFiltersChange = (filters: any) => {
     console.log("Filters changed:", filters);
     applyFilters(filters);
+  };
+
+  const toggleMobileFilters = () => {
+    setFiltersVisible(!filtersVisible);
   };
 
   return (
@@ -51,12 +56,30 @@ export default function Home() {
 
       {/* Main content */}
       <main className="flex-grow bg-gray-50 py-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto px-4">
           <PromotionBanner />
           <FeaturedProducts />
-          {/* Product Grid */}
+
+          {/* Mobile filter toggle */}
+          <div className="md:hidden mb-4">
+            <button
+              onClick={toggleMobileFilters}
+              className="w-full py-2 px-4 bg-white rounded-lg shadow-sm flex items-center justify-between"
+            >
+              <span className="font-medium">Bộ lọc & Sắp xếp</span>
+              <ChevronRight
+                className={`h-4 w-4 transition-transform ${
+                  filtersVisible ? "rotate-90" : ""
+                }`}
+              />
+            </button>
+          </div>
+
+          {/* Product Grid and Filters */}
           <div className="flex flex-col md:flex-row gap-6">
-            <FilterSidebar onFiltersChange={handleFiltersChange} />
+            <div className={`${filtersVisible ? "block" : "hidden"} md:block`}>
+              <FilterSidebar onFiltersChange={handleFiltersChange} />
+            </div>
             <ProductGrid
               products={products}
               loading={loading}
@@ -70,8 +93,8 @@ export default function Home() {
 
       {/* Service Features */}
       <div className="py-6 bg-gray-50">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex items-center p-4 bg-white rounded-lg shadow-md shadow-z8">
               <div className="bg-brand-50 p-3 rounded-full mr-3">
                 <Phone className="h-5 w-5 text-brand-500" />
@@ -123,7 +146,7 @@ export default function Home() {
 
       {/* Banner */}
       <div className="bg-brand-50 py-3">
-        <div className="container mx-auto flex justify-between items-center">
+        <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex items-center gap-2">
             <MapPinned className="h-5 w-5 text-brand-600" />
             <span className="text-sm font-medium text-textPrimary">
@@ -132,7 +155,7 @@ export default function Home() {
           </div>
           <Link
             href="#"
-            className="text-brand-600 text-sm flex items-center bg-white rounded-full p-2"
+            className="text-brand-600 text-sm flex items-center bg-white rounded-full p-2 whitespace-nowrap"
           >
             Xem ngay
             <FaChevronRight className="h-4 w-4 ml-1 text-brand-600" />

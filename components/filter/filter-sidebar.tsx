@@ -1,11 +1,12 @@
 "use client";
 
-import { FaFilter, FaTimes } from "react-icons/fa";
+import { FaFilter, FaTimes, FaChevronUp, FaChevronDown } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { FilterAccordion } from "./filter-accordion";
 import { FilterSkeleton } from "./filter-skeleton";
 import { useFilters } from "@/hooks/useFilters";
+import { useState } from "react";
 
 interface FilterSidebarProps {
   onFiltersChange?: (filters: any) => void;
@@ -22,6 +23,8 @@ export function FilterSidebar({
   loading = false,
   filterSummary,
 }: FilterSidebarProps) {
+  const [mobileFiltersVisible, setMobileFiltersVisible] = useState(false);
+
   const {
     filterSections,
     toggleSection,
@@ -40,6 +43,10 @@ export function FilterSidebar({
     onFiltersChange?.({});
   };
 
+  const toggleMobileFilters = () => {
+    setMobileFiltersVisible(!mobileFiltersVisible);
+  };
+
   if (loading) {
     return <FilterSkeleton />;
   }
@@ -48,7 +55,34 @@ export function FilterSidebar({
 
   return (
     <div className="w-full md:w-64 flex-shrink-0">
-      <div className="bg-white rounded-lg shadow-sm p-4 mb-4">
+      <div className="md:hidden mb-4">
+        <Button
+          onClick={toggleMobileFilters}
+          variant="outline"
+          className="w-full flex items-center justify-between"
+        >
+          <div className="flex items-center">
+            <FaFilter className="h-4 w-4 mr-2 text-blue-main" />
+            <span>Bộ Lọc</span>
+            {activeFilterCount > 0 && (
+              <Badge className="ml-2 bg-blue-main text-white">
+                {activeFilterCount}
+              </Badge>
+            )}
+          </div>
+          {mobileFiltersVisible ? (
+            <FaChevronUp className="h-3 w-3" />
+          ) : (
+            <FaChevronDown className="h-3 w-3" />
+          )}
+        </Button>
+      </div>
+
+      <div
+        className={`bg-white rounded-lg shadow-sm p-4 mb-4 ${
+          mobileFiltersVisible ? "block" : "hidden md:block"
+        }`}
+      >
         <div className="flex items-center justify-between mb-4">
           <h3 className="font-bold flex items-center text-blue-main">
             <FaFilter className="h-4 w-4 mr-2 text-blue-main" />
@@ -127,6 +161,15 @@ export function FilterSidebar({
               }}
             />
           ))}
+        </div>
+
+        <div className="md:hidden mt-4">
+          <Button
+            className="w-full bg-blue-main hover:bg-blue-700 text-white"
+            onClick={() => setMobileFiltersVisible(false)}
+          >
+            Áp dụng
+          </Button>
         </div>
       </div>
     </div>

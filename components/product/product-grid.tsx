@@ -2,10 +2,16 @@
 
 import { useInfiniteScroll } from "@/hooks/use-infinite-scroll";
 import type { Product } from "@/types";
-import { ArrowUpDown, BoxIcon, ChevronDown } from "lucide-react";
+import {
+  ArrowUpDown,
+  BoxIcon,
+  ChevronDown,
+  SlidersHorizontal,
+} from "lucide-react";
 import { useState } from "react";
 import { ProductCard } from "./product-card";
 import { ProductGridSkeleton } from "./produuct-skeleton";
+import { Button } from "../ui/button";
 
 interface ProductGridProps {
   products: Product[];
@@ -36,6 +42,7 @@ export function ProductGrid({
 }: ProductGridProps) {
   const [activeTab, setActiveTab] = useState("Liên quan");
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showMobileSortOptions, setShowMobileSortOptions] = useState(false);
 
   const tabs = [
     { id: "related", label: "Liên quan", active: true },
@@ -64,7 +71,64 @@ export function ProductGrid({
 
   return (
     <div className="flex-grow">
-      <div className="flex justify-between items-center mb-4">
+      <div className="md:hidden mb-4">
+        <Button
+          variant="outline"
+          onClick={() => setShowMobileSortOptions(!showMobileSortOptions)}
+          className="w-full flex items-center justify-between"
+        >
+          <div className="flex items-center">
+            <SlidersHorizontal className="h-4 w-4 mr-2" />
+            <span>Sắp xếp theo: {activeTab}</span>
+          </div>
+          <ChevronDown
+            className={`h-4 w-4 transition-transform ${
+              showMobileSortOptions ? "rotate-180" : ""
+            }`}
+          />
+        </Button>
+
+        {showMobileSortOptions && (
+          <div className="bg-white mt-2 rounded-lg shadow-lg overflow-hidden">
+            <div className="grid grid-cols-2 gap-1 p-2">
+              {tabs.map((tab) => (
+                <button
+                  key={tab.id}
+                  className={`px-3 py-2 text-sm rounded-md ${
+                    activeTab === tab.label
+                      ? "bg-blue-main text-white"
+                      : "bg-gray-50 text-gray-700"
+                  }`}
+                  onClick={() => {
+                    setActiveTab(tab.label);
+                    setShowMobileSortOptions(false);
+                  }}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <div className="border-t">
+              <div className="p-2">
+                <p className="text-xs text-gray-500 mb-2">Theo giá:</p>
+                <div className="grid grid-cols-2 gap-1">
+                  {sortOptions.map((option) => (
+                    <button
+                      key={option.value}
+                      className="flex items-center justify-center px-3 py-2 text-sm bg-gray-50 rounded-md text-gray-700"
+                      onClick={() => setShowMobileSortOptions(false)}
+                    >
+                      {option.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
+      </div>
+
+      <div className="hidden md:flex justify-between items-center mb-4">
         <div className="text-sm text-primary-dark">Danh sách sản phẩm</div>
         <div className="flex items-center gap-4 p-4">
           <span className="text-primary-dark text-sm font-medium whitespace-nowrap">
@@ -121,19 +185,19 @@ export function ProductGrid({
       </div>
 
       {products.length === 0 && !loading ? (
-        <div className="flex items-center justify-center py-12">
+        <div className="flex flex-col items-center justify-center py-12">
           <div className="text-gray-400 mb-4">
             <BoxIcon className="w-12 h-12" />
           </div>
-          <h3 className="text-lg font-medium text-gray-900 mb-2">
+          <h3 className="text-lg font-medium text-gray-900 mb-2 text-center">
             Không tìm thấy sản phẩm
           </h3>
-          <p className="text-gray-500">
+          <p className="text-gray-500 text-center">
             Thử thay đổi bộ lọc hoặc từ khóa tìm kiếm
           </p>
         </div>
       ) : (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
           {products.map((product, index) => {
             if (index === products.length - 1 && hasMore) {
               return (
@@ -157,7 +221,7 @@ export function ProductGrid({
           <div className="flex justify-center mb-4">
             <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-blue-main"></div>
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 md:gap-4">
             {Array.from({ length: 3 }).map((_, index) => (
               <div
                 key={`skeleton-${index}`}
