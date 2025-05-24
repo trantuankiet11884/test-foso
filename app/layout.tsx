@@ -11,6 +11,9 @@ export const metadata: Metadata = {
   title: "SUNFIL - Lọc gió động cơ Air Filter",
   description:
     "SUNFIL - Chuyên cung cấp các loại lọc gió động cơ, lọc nhớt, lọc dầu chính hãng",
+  icons: {
+    icon: "/images/logo_sunfil1.png",
+  },
 };
 
 export default function RootLayout({
