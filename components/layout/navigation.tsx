@@ -48,20 +48,20 @@ export function Navigation() {
   };
 
   return (
-    <nav className="text-white text-nowrap">
-      <div className="container mx-auto flex items-center justify-between gap-2">
+    <nav className="container mx-auto">
+      <div className="flex items-center justify-between">
         <div ref={categoryRef} className="relative">
           <Button
-            className="flex items-center p-4 text-white rounded-lg bg-blue-main border-0"
+            className="flex items-center text-white rounded-lg bg-blue-main border-0"
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
           >
-            <FaBars className="h-4 w-4 mr-3" />
-            <span className="mr-3">Danh Mục Sản Phẩm</span>
+            <FaBars className="h-4 w-4 mr-1" />
+            <span className="mr-1">Danh Mục Sản Phẩm</span>
             {showCategoryMenu ? (
-              <FaChevronUp className="h-3 w-3" />
+              <FaChevronUp className="h-2 w-2" />
             ) : (
-              <FaChevronDown className="h-3 w-3" />
+              <FaChevronDown className="h-2 w-2" />
             )}
           </Button>
 
