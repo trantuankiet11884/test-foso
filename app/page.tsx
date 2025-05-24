@@ -56,7 +56,7 @@ export default function Home() {
 
       {/* Main content */}
       <main className="flex-grow bg-gray-50 py-4">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <PromotionBanner />
           <FeaturedProducts />
 
