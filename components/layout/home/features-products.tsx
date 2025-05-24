@@ -52,28 +52,24 @@ export function FeaturedProducts() {
         </div>
 
         <div className="relative z-10">
-          <h2 className="text-white font-bold text-lg mb-4 pl-2">
-            Sản phẩm nổi bật
-          </h2>
-
           <Button
             variant="ghost"
             size="sm"
             onClick={prevSlide}
-            className="absolute left-0 top-1/2 transform -translate-y-1/2 z-20 text-white hover:bg-white/20 rounded-full p-2 md:p-3"
+            className="absolute left-5 top-1/2 transform -translate-y-1/2 z-20 text-white bg-brand-100 rounded-full p-2 md:p-3"
             disabled={featuredProducts.length <= itemsPerPage}
           >
-            <FaChevronLeft className="h-4 w-4 md:h-5 md:w-5" />
+            <FaChevronLeft className="h-4 w-4 md:h-5 md:w-5 text-brand-800" />
           </Button>
 
           <Button
             variant="ghost"
             size="sm"
             onClick={nextSlide}
-            className="absolute right-0 top-1/2 transform -translate-y-1/2 z-20 text-white hover:bg-white/20 rounded-full p-2 md:p-3"
+            className="absolute right-5 top-1/2 transform -translate-y-1/2 z-20 text-white bg-brand-100 rounded-full p-2 md:p-3"
             disabled={featuredProducts.length <= itemsPerPage}
           >
-            <FaChevronRight className="h-4 w-4 md:h-5 md:w-5" />
+            <FaChevronRight className="h-4 w-4 md:h-5 md:w-5 text-brand-800" />
           </Button>
 
           <div className="overflow-hidden mx-10">

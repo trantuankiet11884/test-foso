@@ -18,7 +18,7 @@ export function Header() {
             </span>
           </div>
           <div className="flex items-center space-x-4">
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer">
               <Phone className="h-3 w-3 mr-1" />
               <p className="hidden sm:block">
                 Hotline:
@@ -28,7 +28,7 @@ export function Header() {
                 Gọi ngay
               </a>
             </div>
-            <div className="flex items-center">
+            <div className="flex items-center cursor-pointer">
               <Book className="h-3 w-3 mr-1" />
               <span>Tải ứng dụng</span>
             </div>
@@ -39,7 +39,7 @@ export function Header() {
       <header className="bg-white py-4 border-b">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
           <div className="flex items-center justify-between w-full md:w-auto">
-            <Link href="/" className="flex-shrink-0">
+            <Link href="#" className="flex-shrink-0">
               <Image
                 src="/images/logo_sunfil1.png"
                 alt="Sunfil Logo"
@@ -50,7 +50,7 @@ export function Header() {
             </Link>
 
             <div className="flex items-center space-x-4 md:hidden">
-              <Link href="/#" className="flex items-center">
+              <Link href="#" className="flex items-center">
                 <div className="relative">
                   <FaShoppingCart className="h-6 w-6 text-blue-main" />
                   <Badge className="absolute -top-2 -right-2 bg-errorMain text-white h-5 w-5 flex items-center justify-center p-0 rounded-full text-xs">
@@ -59,7 +59,7 @@ export function Header() {
                 </div>
               </Link>
 
-              <Link href="/#">
+              <Link href="#">
                 <div className="bg-blue-main text-white rounded-full p-2">
                   <FaUser className="h-4 w-4" />
                 </div>
@@ -90,7 +90,7 @@ export function Header() {
           </div>
 
           <div className="hidden md:flex items-center space-x-6">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-2 cursor-pointer">
               <Image
                 src="/images/ico-vietnam.png"
                 alt="Vietnamese Flag"

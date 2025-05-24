@@ -47,7 +47,7 @@ export default function Home() {
       <div className="bg-gray-50 py-2 px-4">
         <div className="container mx-auto">
           <div className="flex items-center text-sm text-gray-500">
-            <Link href="/">Trang chủ</Link>
+            <Link href="#">Trang chủ</Link>
             <ChevronRight className="h-4 w-4" />
             <span className="text-brand-700">Sản phẩm</span>
           </div>
@@ -93,7 +93,7 @@ export default function Home() {
 
       {/* Service Features */}
       <div className="py-6 bg-gray-50">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
             <div className="flex items-center p-4 bg-white rounded-lg shadow-md shadow-z8">
               <div className="bg-brand-50 p-3 rounded-full mr-3">
@@ -146,7 +146,7 @@ export default function Home() {
 
       {/* Banner */}
       <div className="bg-brand-50 py-3">
-        <div className="container mx-auto px-4 flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
+        <div className="container mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 sm:gap-0">
           <div className="flex items-center gap-2">
             <MapPinned className="h-5 w-5 text-brand-600" />
             <span className="text-sm font-medium text-textPrimary">

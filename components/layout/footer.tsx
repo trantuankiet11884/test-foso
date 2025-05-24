@@ -1,27 +1,12 @@
-import { ChevronDown, ChevronUp } from "lucide-react";
+"use client";
+import { ChevronDown } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
 
 export function Footer() {
-  const [expandedSections, setExpandedSections] = useState<
-    Record<string, boolean>
-  >({});
-
-  const toggleSection = (sectionId: string) => {
-    setExpandedSections((prev) => ({
-      ...prev,
-      [sectionId]: !prev[sectionId],
-    }));
-  };
-
-  const isSectionExpanded = (sectionId: string) => {
-    return !!expandedSections[sectionId];
-  };
-
   return (
     <footer className="bg-[url('/images/footer/bground.jpg')] bg-cover bg-center pt-8 pb-4 border-t">
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-6 md:gap-8">
           <div className="col-span-1 md:col-span-2 lg:col-span-3">
             <h3 className="font-bold text-sm uppercase mb-4 text-brand-800">
@@ -57,26 +42,8 @@ export function Footer() {
           </div>
 
           <div className="col-span-1">
-            <div className="flex justify-between items-center md:block">
-              <h3 className="font-bold text-sm mb-4 text-brand-800">Sitemap</h3>
-              <button
-                className="md:hidden"
-                onClick={() => toggleSection("sitemap")}
-              >
-                {isSectionExpanded("sitemap") ? (
-                  <ChevronUp className="h-4 w-4" />
-                ) : (
-                  <ChevronDown className="h-4 w-4" />
-                )}
-              </button>
-            </div>
-            <ul
-              className={`text-sm space-y-2 ${
-                isSectionExpanded("sitemap") || window.innerWidth >= 768
-                  ? "block"
-                  : "hidden"
-              }`}
-            >
+            <h3 className="font-bold text-sm mb-4 text-brand-800">Sitemap</h3>
+            <ul className="text-sm space-y-2">
               <li>
                 <Link href="#" className="text-textSecondary">
                   About
@@ -101,26 +68,8 @@ export function Footer() {
           </div>
 
           <div className="col-span-1">
-            <div className="flex justify-between items-center md:block">
-              <h3 className="font-bold text-sm mb-4 text-brand-800">Legal</h3>
-              <button
-                className="md:hidden"
-                onClick={() => toggleSection("legal")}
-              >
-                {isSectionExpanded("legal") ? (
-                  <ChevronUp className="h-4 w-4" />
-                ) : (
-                  <ChevronDown className="h-4 w-4" />
-                )}
-              </button>
-            </div>
-            <ul
-              className={`text-sm space-y-2 ${
-                isSectionExpanded("legal") || window.innerWidth >= 768
-                  ? "block"
-                  : "hidden"
-              }`}
-            >
+            <h3 className="font-bold text-sm mb-4 text-brand-800">Legal</h3>
+            <ul className="text-sm space-y-2">
               <li>
                 <Link href="#" className="text-textPrimary">
                   _Privacy policy
@@ -170,7 +119,7 @@ export function Footer() {
                 </Link>
               </div>
 
-              <div className="flex items-center justify-center gap-2 mt-4">
+              <div className="flex items-center justify-center gap-2 mt-4 cursor-pointer">
                 <Image
                   src="/images/ico-vietnam.png"
                   alt="Vietnamese Flag"
@@ -182,10 +131,6 @@ export function Footer() {
               </div>
             </div>
           </div>
-        </div>
-
-        <div className="mt-8 pt-4 border-t border-gray-200 text-center text-xs text-textSecondary">
-          <p>© 2024 SUNFIL. All rights reserved.</p>
         </div>
       </div>
     </footer>

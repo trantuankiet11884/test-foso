@@ -42,6 +42,7 @@ const config = {
           shadowBrand: "#E6F1FF",
           z8: "  #919EAB29",
           50: "#E6F1FF",
+          100: "#CDE4FE",
           500: "#0373F3",
           600: "#025FCA",
           700: "#024897",
